@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Khánh CAREO – Chuyên VinFast lướt TP.HCM</title>
+<meta name="description" content="Khánh CAREO chuyên mua bán xe VinFast lướt tại TP.HCM: VF3, VF5, VF6, VF7, VF8, VF9, Fadil. Cam kết chất lượng bằng văn bản, bao check test hãng hoặc bên thứ 3. Thu mua giá cao, thu đổi lên đời.">
+<meta property="og:title" content="Khánh CAREO – Chuyên VinFast lướt">
+<meta property="og:description" content="Mua giá đỉnh · Bán chuẩn chỉnh · Cam kết chất lượng bằng văn bản">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#13204A;--navy2:#1c2d63;--gold:#F5C518;--red:#D9141E;--ink:#1d2433;--muted:#5b6477;--bg:#f5f6fa;--card:#fff;--line:#e4e7ef}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Be Vietnam Pro',Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+/* header */
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.3px}
+.brand img{height:30px}
+.brand span b{color:var(--gold)}
+nav{display:flex;gap:20px;font-weight:600;font-size:15px}
+nav a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:12px 18px;font-weight:800;border:0;cursor:pointer;font-size:15px}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-red{background:var(--red);color:#fff}
+.btn-line{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+.btn-navy{background:var(--navy);color:#fff}
+@media(max-width:760px){nav{display:none}}
+/* hero */
+.hero{background:linear-gradient(180deg,rgba(19,32,74,.55),rgba(19,32,74,.92)),url(img/hero.jpg) center/cover;color:#fff}
+.hero .wrap{padding:72px 16px 64px}
+.hero .tag{display:inline-block;background:var(--gold);color:var(--navy);font-weight:800;padding:6px 12px;border-radius:999px;font-size:13px;letter-spacing:.5px}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.08;margin:16px 0 12px;font-weight:900}
+.hero h1 b{color:var(--gold)}
+.hero p{font-size:18px;max-width:620px;opacity:.95;margin:0 0 26px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.stats{display:flex;flex-wrap:wrap;gap:28px;margin-top:40px}
+.stats div{font-size:14px;opacity:.9}
+.stats b{display:block;font-size:26px;color:var(--gold);font-weight:900}
+/* promise strip */
+.promise{background:var(--gold);color:var(--navy)}
+.promise .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:18px 16px;font-weight:800;font-size:15px}
+.promise div{display:flex;gap:10px;align-items:center}
+.promise i{font-style:normal;background:var(--navy);color:var(--gold);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex:none;font-size:14px}
+@media(max-width:860px){.promise .wrap{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.promise .wrap{grid-template-columns:1fr}}
+/* sections */
+section{padding:56px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px;flex-wrap:wrap}
+.head h2{margin:0;font-size:clamp(26px,4vw,36px);font-weight:900;color:var(--navy)}
+.head p{margin:4px 0 0;color:var(--muted)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer;color:var(--navy)}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+/* cars */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:960px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.car{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.car .pic{position:relative;aspect-ratio:4/3;overflow:hidden;background:#dfe3ec}
+.car .pic img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-weight:800;font-size:12px;padding:5px 10px;border-radius:8px}
+.badge.g{background:var(--gold);color:var(--navy)}
+.car .body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.car h3{margin:0;font-size:20px;color:var(--navy);font-weight:900}
+.specs{display:flex;flex-wrap:wrap;gap:6px}
+.specs span{background:var(--bg);border-radius:8px;padding:4px 9px;font-size:13px;font-weight:600;color:var(--muted)}
+.car ul{margin:0;padding-left:18px;color:var(--ink);font-size:14px}
+.car .price{font-weight:800;color:var(--red);font-size:15px}
+.car .act{display:flex;gap:8px;margin-top:auto}
+.car .act .btn{flex:1;padding:11px 10px;font-size:14px}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.svc{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.svc{grid-template-columns:1fr}}
+.svc div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.svc b{display:block;color:var(--navy);font-size:18px;margin:8px 0 6px}
+.svc em{font-style:normal;font-size:28px}
+.svc p{margin:0;color:var(--muted);font-size:14px}
+/* deliveries */
+.dark{background:var(--navy);color:#fff}
+.dark .head h2{color:#fff}
+.dark .head p{color:#c9cfe0}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:760px){.gal{grid-template-columns:1fr 1fr}}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px}
+/* sell form */
+.sell{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+@media(max-width:860px){.sell{grid-template-columns:1fr}}
+.sell .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+label{display:block;font-weight:700;font-size:14px;margin:12px 0 6px;color:var(--navy)}
+input,select,textarea{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+textarea{min-height:80px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+.checks{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:10px}
+.checks li{display:flex;gap:10px}
+.checks li:before{content:"✓";color:var(--navy);background:var(--gold);border-radius:50%;width:22px;height:22px;display:grid;place-items:center;font-weight:900;flex:none;font-size:13px}
+/* contact */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.contact{grid-template-columns:1fr}}
+.contact a,.contact div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:block}
+.contact b{display:block;color:var(--navy);font-size:17px}
+.contact span{color:var(--muted);font-size:14px}
+footer{background:#0c1532;color:#aab3cc;font-size:14px}
+footer .wrap{padding:28px 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:#fff}
+/* floating */
+.float{position:fixed;right:14px;bottom:14px;display:flex;flex-direction:column;gap:10px;z-index:30}
+.float a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);font-size:13px}
+.float .z{background:#0068FF}
+.float .c{background:var(--red)}
+@media(max-width:600px){.float{right:10px;bottom:10px;flex-direction:row}.float a{width:46px;height:46px;font-size:12px}footer .wrap{padding-bottom:76px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/logo.png" alt="CAREO"><span>KHÁNH <b>CAREO</b></span></a>
+    <nav>
+      <a href="#xe">Xe đang bán</a>
+      <a href="#dichvu">Dịch vụ</a>
+      <a href="#banxe">Bán xe cho em</a>
+      <a href="#lienhe">Liên hệ</a>
+    </nav>
+    <a class="btn btn-gold js-call" href="#lienhe">Gọi ngay</a>
+  </div>
+</header>
+
+<div id="top" class="hero">
+  <div class="wrap">
+    <span class="tag">CHUYÊN VINFAST LƯỚT · TP.HCM</span>
+    <h1>Xe VinFast lướt<br><b>như mới</b> – tiết kiệm vài chục triệu</h1>
+    <p>Em Khánh CAREO chuyên săn VF3, VF5, VF6, VF7, VF8, VF9 và Fadil chạy ít. Cam kết chất lượng bằng văn bản, bao check test hãng hoặc bên thứ 3.</p>
+    <div class="cta">
+      <a class="btn btn-gold" href="#xe">Xem xe đang bán</a>
+      <a class="btn btn-line js-zalo" href="#lienhe">Nhắn Zalo hỏi giá</a>
+    </div>
+    <div class="stats">
+      <div><b>VF3 → VF9</b>Đủ mọi dòng VinFast</div>
+      <div><b>Bằng văn bản</b>Cam kết chất lượng</div>
+      <div><b>1 lần ký</b>Thủ tục em lo hết</div>
+    </div>
+  </div>
+</div>
+
+<div class="promise">
+  <div class="wrap">
+    <div><i>₫</i>Mua giá đỉnh</div>
+    <div><i>✓</i>Bán chuẩn chỉnh</div>
+    <div><i>✍</i>Cam kết chất lượng bằng văn bản</div>
+    <div><i>⚙</i>Bao check test hãng hoặc bên thứ 3</div>
+  </div>
+</div>
+
+<section id="xe">
+  <div class="wrap">
+    <div class="head">
+      <div><h2>Xe đang bán</h2><p>Giá tốt nhất – gọi hoặc nhắn Zalo để em báo giá và gửi video chi tiết.</p></div>
+      <div class="filters" id="filters">
+        <button class="chip on" data-f="all">Tất cả</button>
+        <button class="chip" data-f="vf7">VF7</button>
+        <button class="chip" data-f="vf3">VF3</button>
+        <button class="chip" data-f="fadil">Fadil</button>
+      </div>
+    </div>
+    <div class="grid" id="cars"></div>
+  </div>
+</section>
+
+<section id="dichvu" style="background:#fff">
+  <div class="wrap">
+    <div class="head"><div><h2>Em Khánh làm gì cho anh chị?</h2><p>Mua, bán, đổi xe VinFast – nhanh gọn, minh bạch.</p></div></div>
+    <div class="svc">
+      <div><em>🚗</em><b>Bán xe lướt</b><p>Xe chạy ít, giấy tờ rõ ràng, giá thấp hơn xe mới vài chục triệu.</p></div>
+      <div><em>💰</em><b>Thu mua giá cao</b><p>Được tặng xe không dùng hay muốn bán? Em thu mua giá cao nhất thị trường.</p></div>
+      <div><em>🔁</em><b>Thu đổi lên đời</b><p>Đổi VF3, VF5, VF6 – kể cả xe xăng – lên đời xe mới hơn.</p></div>
+      <div><em>📄</em><b>Lo trọn thủ tục</b><p>Anh chị chỉ ký đúng 1 lần, hồ sơ pháp lý em lo hết.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head"><div><h2>Khách nhận xe tại CAREO</h2><p>Cảm ơn quý khách đã tin tưởng em Khánh.</p></div></div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section id="banxe">
+  <div class="wrap sell">
+    <div>
+      <div class="head"><div><h2>Bán xe cho em Khánh</h2><p>Gửi thông tin xe – em báo giá thu mua trong ngày.</p></div></div>
+      <ul class="checks">
+        <li>Thu mua tất cả các dòng VinFast, từ xe lướt đến odo cao</li>
+        <li>Định giá minh bạch, trả giá cao nhất thị trường</li>
+        <li>Thanh toán nhanh, em lo toàn bộ thủ tục sang tên</li>
+        <li>Muốn đổi lên đời? Em bù trừ luôn với xe đang bán</li>
+      </ul>
+    </div>
+    <form class="card" id="sellForm">
+      <div class="row2">
+        <div><label for="f-model">Dòng xe</label>
+          <select id="f-model"><option>VF3</option><option>VF5</option><option>VF6</option><option selected>VF7</option><option>VF8</option><option>VF9</option><option>Fadil</option><option>Lux A / Lux SA</option><option>Khác</option></select></div>
+        <div><label for="f-year">Đời xe</label><input id="f-year" inputmode="numeric" placeholder="vd. 2024"></div>
+      </div>
+      <div class="row2">
+        <div><label for="f-km">Số km đã chạy</label><input id="f-km" inputmode="numeric" placeholder="vd. 20.000"></div>
+        <div><label for="f-name">Tên anh/chị</label><input id="f-name" placeholder="vd. Anh Nam"></div>
+      </div>
+      <label for="f-note">Ghi chú (màu, tình trạng, muốn đổi xe gì…)</label>
+      <textarea id="f-note" placeholder="vd. Màu trắng, chưa va chạm, muốn đổi lên VF7"></textarea>
+      <button type="submit" class="btn btn-red" style="width:100%;margin-top:14px">Gửi qua Zalo cho em Khánh</button>
+      <p class="note">Bấm gửi sẽ mở Zalo với nội dung đã soạn sẵn – thông tin không lưu trên website.</p>
+    </form>
+  </div>
+</section>
+
+<section id="lienhe" style="background:#fff">
+  <div class="wrap">
+    <div class="head"><div><h2>Liên hệ em Khánh</h2><p>Xem xe trực tiếp tại showroom CAREO – gọi trước để em chuẩn bị xe.</p></div></div>
+    <div class="contact">
+      <a class="js-call" href="#"><b>📞 <span class="js-phone"></span></b><span>Gọi điện / Zalo</span></a>
+      <a class="js-fb" href="#" target="_blank" rel="noopener"><b>💬 Facebook</b><span>Khánh Vinfast lướt Hồ Chí Minh</span></a>
+      <div><b>📍 Showroom CAREO</b><span class="js-addr"></span></div>
+    </div>
+    <p class="note">Theo dõi em trên TikTok, YouTube (Khánh chuyên Vinfast Lướt HCM) và Facebook để săn xe mới về mỗi ngày.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Khánh CAREO – Chuyên VinFast lướt</div>
+    <div><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="app.html">CAREO Video Poster</a></div>
+  </div>
+</footer>
+
+<div class="float">
+  <a class="z js-zalo" href="#" aria-label="Zalo">Zalo</a>
+  <a class="c js-call" href="#" aria-label="Gọi">Gọi</a>
+</div>
+
+<script>
+/* ====== THÔNG TIN CẦN ĐIỀN (sửa ở đây) ====== */
+const INFO = {
+  phone: "0335 637 668",            // số điện thoại / Zalo của em Khánh
+  facebook: "https://www.facebook.com/", // link trang Facebook
+  address: "22 Đường 24, P. An Khánh, TP. Hồ Chí Minh"
+};
+/* ====== XE ĐANG BÁN (không ghi giá – khách gọi hỏi) ====== */
+const CARS = [
+  { f:"vf7", img:"vf7plus_den.jpg", badge:"MỚI 16 KM", gold:true, name:"VinFast VF7 Plus 2026 · 1 cầu",
+    specs:["2026","16 km","Đen","Nội thất nâu"], points:["Chưa lăn bánh ngoài đường, nilon còn nguyên","Lấy giá xe mới trừ vài chục là chốt"], yt:"71noMtaxluU" },
+  { f:"vf7", img:"vf7plus_2cau.jpg", badge:"2 CẦU", name:"VinFast VF7 Plus 2026 · 2 cầu",
+    specs:["2026","16 km","Đen","Nội thất nâu"], points:["Thêm máy sau, mã lực gần gấp đôi","Vào cua bám đường, lên đèo dốc cực ngon"], yt:"GW1cYgZmPrY" },
+  { f:"vf7", img:"vf7s_do.jpg", badge:"CAM KẾT ZIN", name:"VinFast VF7 S 2024",
+    specs:["2024","~2 vạn km","Đỏ"], points:["Không đâm đụng, không ngập nước, không thủy kích","Màu đỏ – giá tốt hơn các màu khác"], yt:"iy90fExDMjM" },
+  { f:"vf7", img:"vf7eco_do.jpg", badge:"SẠC FREE 2027", name:"VinFast VF7 Eco 2024",
+    specs:["2024","25.000 km","Đỏ – đen"], points:["Sơn zin nguyên bản, phim cách nhiệt, camera cặp lề","Sạc miễn phí đến 2027"], yt:"oOruzLYK-xI" },
+  { f:"vf3", img:"vf3_2025.jpg", badge:"8.000 KM", gold:true, name:"VinFast VF3 2025",
+    specs:["2025","8.000 km","ĐK 01/2026"], points:["Nhỏ gọn, đi phố cực tiện","Cốp trước để đồ có mùi"], yt:"xPvAtZAdaQI" },
+  { f:"fadil", img:"fadil_premium.jpg", badge:"ĐỘ FULL", name:"VinFast Fadil Premium 2020",
+    specs:["2020","~43.000 km","Trắng","6 túi khí"], points:["Android Auto, CarPlay, HUD, cruise control","Đèn bi LED, cam hành trình, đề nổ từ xa"], yt:"VQrY84DtAzM" }
+];
+const GAL = [1,2,3,4,5,6,7,8].map(i => `img/giaoxe/g${i}.jpg`);
+
+const digits = INFO.phone.replace(/\D/g,"");
+const tel = digits.length >= 9 ? "tel:" + digits : "#lienhe";
+const zalo = digits.length >= 9 ? "https://zalo.me/" + digits : "#lienhe";
+document.querySelectorAll(".js-call").forEach(a => a.href = tel);
+document.querySelectorAll(".js-zalo").forEach(a => { a.href = zalo; if (digits.length >= 9) a.target = "_blank"; });
+document.querySelectorAll(".js-phone").forEach(s => s.textContent = INFO.phone);
+document.querySelectorAll(".js-fb").forEach(a => a.href = INFO.facebook);
+document.querySelectorAll(".js-addr").forEach(s => s.textContent = INFO.address);
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function render(filter){
+  document.getElementById("cars").innerHTML = CARS.filter(c => filter === "all" || c.f === filter).map(c => `
+    <article class="car">
+      <div class="pic"><img loading="lazy" src="img/${c.img}" alt="${esc(c.name)}"><span class="badge${c.gold ? " g" : ""}">${esc(c.badge)}</span></div>
+      <div class="body">
+        <h3>${esc(c.name)}</h3>
+        <div class="specs">${c.specs.map(s => `<span>${esc(s)}</span>`).join("")}</div>
+        <ul>${c.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+        <div class="price">Giá: liên hệ – em báo giá tốt nhất</div>
+        <div class="act">
+          <a class="btn btn-navy" href="https://youtube.com/shorts/${c.yt}" target="_blank" rel="noopener">▶ Xem video</a>
+          <a class="btn btn-red" href="${zalo}" ${digits.length >= 9 ? 'target="_blank"' : ""}>Hỏi giá</a>
+        </div>
+      </div>
+    </article>`).join("");
+}
+render("all");
+document.getElementById("filters").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  document.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b));
+  render(b.dataset.f);
+});
+document.getElementById("gal").innerHTML = GAL.map(s => `<img loading="lazy" src="${s}" alt="Khách nhận xe tại CAREO">`).join("");
+
+document.getElementById("sellForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const msg = `Chào em Khánh, anh/chị ${v("f-name") || ""} muốn bán xe: ${v("f-model")} đời ${v("f-year") || "?"}, đã chạy ${v("f-km") || "?"} km. ${v("f-note")}`;
+  try { navigator.clipboard.writeText(msg); } catch (_) {}
+  if (digits.length >= 9) { window.open(zalo, "_blank"); alert("Đã copy nội dung – dán vào Zalo để gửi cho em Khánh nhé!"); }
+  else { alert("Nội dung đã copy:\n\n" + msg); }
+});
+</script>
+</body>
+</html>
