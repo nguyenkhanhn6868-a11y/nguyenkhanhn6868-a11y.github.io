@@ -112,6 +112,18 @@ textarea{min-height:80px;resize:vertical}
 footer{background:#0c1532;color:#aab3cc;font-size:14px}
 footer .wrap{padding:28px 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:#fff}
+/* video modal */
+.vmodal{position:fixed;inset:0;background:rgba(8,12,28,.82);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.vmodal.on{display:flex}
+.vbox{background:#000;border-radius:16px;overflow:hidden;width:min(400px,100%);max-height:100%;display:flex;flex-direction:column}
+.vtop{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:var(--navy);color:#fff;font-size:15px}
+.vclose{background:transparent;border:0;color:#fff;font-size:20px;cursor:pointer;padding:4px 8px}
+.vplayer{position:relative;width:100%;aspect-ratio:9/16;max-height:calc(100vh - 150px);background:#000}
+.vplayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vfoot{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:#fff;font-size:13px;font-weight:700;color:var(--navy);flex-wrap:wrap}
+.vfoot a{text-decoration:underline}
+.vfoot a.btn{text-decoration:none}
+button.btn{font-family:inherit}
 /* floating */
 .float{position:fixed;right:14px;bottom:14px;display:flex;flex-direction:column;gap:10px;z-index:30}
 .float a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.25);font-size:13px}
@@ -232,6 +244,7 @@ footer a{color:#fff}
       <a class="js-fb" href="#" target="_blank" rel="noopener"><b>💬 Facebook</b><span>Khánh Vinfast lướt Hồ Chí Minh</span></a>
       <div><b>📍 Showroom CAREO</b><span class="js-addr"></span></div>
     </div>
+    <p style="margin-top:16px"><a class="btn btn-navy js-tt" href="#" target="_blank" rel="noopener">🎵 Xem thêm xe trên TikTok @khanhcareoauto</a></p>
     <p class="note">Theo dõi em trên TikTok, YouTube (Khánh chuyên Vinfast Lướt HCM) và Facebook để săn xe mới về mỗi ngày.</p>
   </div>
 </section>
@@ -242,6 +255,14 @@ footer a{color:#fff}
     <div><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="app.html">CAREO Video Poster</a></div>
   </div>
 </footer>
+
+<div class="vmodal" id="vmodal" role="dialog" aria-modal="true" aria-labelledby="vtitle">
+  <div class="vbox">
+    <div class="vtop"><b id="vtitle"></b><button class="vclose" aria-label="Đóng">✕</button></div>
+    <div class="vplayer"><iframe id="vframe" title="Video xe" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="vfoot"><span id="vlinks"></span><a class="btn btn-red js-zalo" href="#" style="padding:9px 14px;font-size:14px">Hỏi giá xe này</a></div>
+  </div>
+</div>
 
 <div class="float">
   <a class="z js-zalo" href="#" aria-label="Zalo">Zalo</a>
@@ -258,17 +279,17 @@ const INFO = {
 /* ====== XE ĐANG BÁN (không ghi giá – khách gọi hỏi) ====== */
 const CARS = [
   { f:"vf7", img:"vf7plus_den.jpg", badge:"MỚI 16 KM", gold:true, name:"VinFast VF7 Plus 2026 · 1 cầu",
-    specs:["2026","16 km","Đen","Nội thất nâu"], points:["Chưa lăn bánh ngoài đường, nilon còn nguyên","Lấy giá xe mới trừ vài chục là chốt"], yt:"71noMtaxluU" },
+    specs:["2026","16 km","Đen","Nội thất nâu"], points:["Chưa lăn bánh ngoài đường, nilon còn nguyên","Lấy giá xe mới trừ vài chục là chốt"], yt:"71noMtaxluU", tt:"7711359300341452050" },
   { f:"vf7", img:"vf7plus_2cau.jpg", badge:"2 CẦU", name:"VinFast VF7 Plus 2026 · 2 cầu",
-    specs:["2026","16 km","Đen","Nội thất nâu"], points:["Thêm máy sau, mã lực gần gấp đôi","Vào cua bám đường, lên đèo dốc cực ngon"], yt:"GW1cYgZmPrY" },
+    specs:["2026","16 km","Đen","Nội thất nâu"], points:["Thêm máy sau, mã lực gần gấp đôi","Vào cua bám đường, lên đèo dốc cực ngon"], yt:"GW1cYgZmPrY", tt:"7711359298185563410" },
   { f:"vf7", img:"vf7s_do.jpg", badge:"CAM KẾT ZIN", name:"VinFast VF7 S 2024",
-    specs:["2024","~2 vạn km","Đỏ"], points:["Không đâm đụng, không ngập nước, không thủy kích","Màu đỏ – giá tốt hơn các màu khác"], yt:"iy90fExDMjM" },
+    specs:["2024","~2 vạn km","Đỏ"], points:["Không đâm đụng, không ngập nước, không thủy kích","Màu đỏ – giá tốt hơn các màu khác"], yt:"iy90fExDMjM", tt:"7711304004894084370" },
   { f:"vf7", img:"vf7eco_do.jpg", badge:"SẠC FREE 2027", name:"VinFast VF7 Eco 2024",
     specs:["2024","25.000 km","Đỏ – đen"], points:["Sơn zin nguyên bản, phim cách nhiệt, camera cặp lề","Sạc miễn phí đến 2027"], yt:"oOruzLYK-xI" },
   { f:"vf3", img:"vf3_2025.jpg", badge:"8.000 KM", gold:true, name:"VinFast VF3 2025",
-    specs:["2025","8.000 km","ĐK 01/2026"], points:["Nhỏ gọn, đi phố cực tiện","Cốp trước để đồ có mùi"], yt:"xPvAtZAdaQI" },
+    specs:["2025","8.000 km","ĐK 01/2026"], points:["Nhỏ gọn, đi phố cực tiện","Cốp trước để đồ có mùi"], yt:"xPvAtZAdaQI", tt:"7711359302820203783" },
   { f:"fadil", img:"fadil_premium.jpg", badge:"ĐỘ FULL", name:"VinFast Fadil Premium 2020",
-    specs:["2020","~43.000 km","Trắng","6 túi khí"], points:["Android Auto, CarPlay, HUD, cruise control","Đèn bi LED, cam hành trình, đề nổ từ xa"], yt:"VQrY84DtAzM" }
+    specs:["2020","~43.000 km","Trắng","6 túi khí"], points:["Android Auto, CarPlay, HUD, cruise control","Đèn bi LED, cam hành trình, đề nổ từ xa"], yt:"VQrY84DtAzM", tt:"7711304748615372040" }
 ];
 const GAL = [1,2,3,4,5,6,7,8].map(i => `img/giaoxe/g${i}.jpg`);
 
@@ -292,13 +313,34 @@ function render(filter){
         <ul>${c.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
         <div class="price">Giá: liên hệ – em báo giá tốt nhất</div>
         <div class="act">
-          <a class="btn btn-navy" href="https://youtube.com/shorts/${c.yt}" target="_blank" rel="noopener">▶ Xem video</a>
+          <button class="btn btn-navy" data-play="${CARS.indexOf(c)}">▶ Xem video</button>
           <a class="btn btn-red" href="${zalo}" ${digits.length >= 9 ? 'target="_blank"' : ""}>Hỏi giá</a>
         </div>
       </div>
     </article>`).join("");
 }
 render("all");
+
+/* ====== TRÌNH PHÁT VIDEO (TikTok, nếu chưa có thì YouTube) ====== */
+const TT_USER = "khanhcareoauto";
+const modal = document.getElementById("vmodal");
+function openVideo(c){
+  const useTT = !!c.tt;
+  document.getElementById("vtitle").textContent = c.name;
+  document.getElementById("vframe").src = useTT
+    ? `https://www.tiktok.com/player/v1/${c.tt}?autoplay=1&description=0&music_info=0&rel=0`
+    : `https://www.youtube.com/embed/${c.yt}?autoplay=1&playsinline=1`;
+  const links = [];
+  if (c.tt) links.push(`<a href="https://www.tiktok.com/@${TT_USER}/video/${c.tt}" target="_blank" rel="noopener">Mở trên TikTok</a>`);
+  if (c.yt) links.push(`<a href="https://youtube.com/shorts/${c.yt}" target="_blank" rel="noopener">Xem trên YouTube</a>`);
+  document.getElementById("vlinks").innerHTML = links.join(" · ");
+  modal.classList.add("on"); document.body.style.overflow = "hidden";
+}
+function closeVideo(){ modal.classList.remove("on"); document.getElementById("vframe").src = "about:blank"; document.body.style.overflow = ""; }
+document.getElementById("cars").addEventListener("click", e => { const b = e.target.closest("[data-play]"); if (b) openVideo(CARS[+b.dataset.play]); });
+modal.addEventListener("click", e => { if (e.target === modal || e.target.closest(".vclose")) closeVideo(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeVideo(); });
+document.querySelectorAll(".js-tt").forEach(a => a.href = `https://www.tiktok.com/@${TT_USER}`);
 document.getElementById("filters").addEventListener("click", e => {
   const b = e.target.closest(".chip"); if (!b) return;
   document.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b));
