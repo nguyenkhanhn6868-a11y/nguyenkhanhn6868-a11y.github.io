@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nguyenkhanhn6868-a11y.github.io/sitemap.xml
